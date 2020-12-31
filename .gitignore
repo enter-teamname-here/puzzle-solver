@@ -449,3 +449,5 @@ MigrationBackup/
 .ionide/
 
 # End of https://www.toptal.com/developers/gitignore/api/c++,c,visualstudio,cmake
+build/
+out/
