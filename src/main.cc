@@ -1,6 +1,5 @@
 #include <iostream>
 
-int main() {
-  std::cout << "Hell world!" << std::endl;
-  return 0;
-}
+#include "puzzlelib/puzzle_def.h"
+
+int main(int argc, const char* argv[]) { return 0; }
