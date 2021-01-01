@@ -1,0 +1,32 @@
+name: Build and Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install CMake and ninja-build
+        id: install_packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install cmake ninja-build
+
+      - name: Build
+        id: build
+        run: |
+          mkdir build
+          cd build
+          cmake -G 'Ninja' ..
+          ninja
+
+      - name: Run Tests
+        id: run_tests
+        run: ./tests/run_tests
