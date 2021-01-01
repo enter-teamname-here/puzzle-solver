@@ -31,4 +31,4 @@ jobs:
 
       - name: Run tests
         id: run_tests
-        run: ./tests/run_tests
+        run: ./build/tests/run_tests
