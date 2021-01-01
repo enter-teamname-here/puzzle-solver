@@ -12,10 +12,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      
-      - name: Sync submodules
-        id: sync_submodules
-        run: git submodule sync --recursive
+        with:
+          submodules: true
 
       - name: Install CMake and ninja-build
         id: install_packages
