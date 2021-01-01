@@ -12,7 +12,7 @@ class PuzzlelibTest : public ::testing::Test {
   virtual void TearDown() {}
   virtual void verify_dim(int grid_width, int grid_height) {
     Puzzle puzzle(grid_width, grid_height);
-    ASSERT_EQ(puzzle.grid_dimension(), make_pair(grid_width, grid_height));
+    ASSERT_EQ(puzzle.GetGridDimension(), make_pair(grid_width, grid_height));
   }
 };
 

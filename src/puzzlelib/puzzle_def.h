@@ -11,7 +11,7 @@ class Puzzle {
 
  public:
   Puzzle(int grid_width, int grid_height);
-  std::pair<int, int> grid_dimension();
+  std::pair<int, int> GetGridDimension();
 };
 }  // namespace puzzlelib
 
