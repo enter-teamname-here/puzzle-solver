@@ -14,13 +14,13 @@ class PuzzleTest : public ::testing::Test {
  protected:
   virtual void SetUp() {}
   virtual void TearDown() {}
-  virtual void verify_dim(int grid_width, int grid_height) {
+  virtual void VerifyDim(int grid_width, int grid_height) {
     Puzzle puzzle(grid_width, grid_height);
     ASSERT_EQ(puzzle.GetGridDimension(), make_pair(grid_width, grid_height));
   }
 };
 
-TEST_F(PuzzleTest, 9_by_9) { verify_dim(9, 9); }
+TEST_F(PuzzleTest, 9_by_9) { VerifyDim(9, 9); }
 
 class CellTest : public ::testing::Test {
  protected:
