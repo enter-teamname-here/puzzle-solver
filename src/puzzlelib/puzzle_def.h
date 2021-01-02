@@ -1,7 +1,7 @@
-#ifndef PUZZLE_DEF_H
-#define PUZZLE_DEF_H
+#pragma once
 
 #include <utility>
+
 #include "rule.h"
 
 namespace puzzlelib {
@@ -15,5 +15,3 @@ class Puzzle {
   std::pair<int, int> GetGridDimension();
 };
 }  // namespace puzzlelib
-
-#endif
