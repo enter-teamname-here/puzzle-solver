@@ -6,7 +6,7 @@
 using puzzlelib::Puzzle;
 using std::make_pair;
 
-class PuzzlelibTest : public ::testing::Test {
+class PuzzleTest : public ::testing::Test {
  protected:
   virtual void SetUp() {}
   virtual void TearDown() {}
@@ -16,4 +16,4 @@ class PuzzlelibTest : public ::testing::Test {
   }
 };
 
-TEST_F(PuzzlelibTest, 9_by_9) { verify_dim(9, 9); }
+TEST_F(PuzzleTest, 9_by_9) { verify_dim(9, 9); }
