@@ -26,7 +26,18 @@ class CellTest : public ::testing::Test {
     Cell cell(x, y);
     ASSERT_EQ(cell.x, x);
     ASSERT_EQ(cell.y, y);
+    ASSERT_EQ(cell.value_defined, false);
+  }
+
+  virtual void VerifyPosInitWithInitVal(int x, int y, int initial_value) {
+    Cell cell(x, y, initial_value);
+    ASSERT_EQ(cell.x, x);
+    ASSERT_EQ(cell.y, y);
+    ASSERT_EQ(cell.initial_value, initial_value);
+    ASSERT_EQ(cell.value_defined, true);
   }
 };
 
 TEST_F(CellTest, Pos_0_0) { VerifyPosInit(0, 0); }
+
+TEST_F(CellTest, Pos_0_0_InitVal_42) { VerifyPosInitWithInitVal(0, 0, 42); }
