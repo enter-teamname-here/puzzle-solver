@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(puzzle_solver_tests)
 
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 add_subdirectory(deps/googletest)
 include_directories(deps/googletest/googletest/include)
 include_directories(${PUZZLELIB_HEADERS_DIR})
