@@ -2,6 +2,7 @@
 #define PUZZLE_DEF_H
 
 #include <utility>
+#include "rule.h"
 
 namespace puzzlelib {
 class Puzzle {

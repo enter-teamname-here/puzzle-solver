@@ -1,5 +1,5 @@
 class Rule {
-  private:
-    char[10] type;
-  
+ private:
+  std::string type;
+  std::string *cells;  
 };
