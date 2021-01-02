@@ -28,6 +28,12 @@ class CellTest : public ::testing::Test {
     ASSERT_EQ(cell.x, expected_x);
     ASSERT_EQ(cell.y, expected_y);
   }
+
+  virtual void VerifyPosInit(int x, int y) {
+    Cell cell(x, y);
+    ASSERT_EQ(cell.x, x);
+    ASSERT_EQ(cell.y, y);
+  }
 };
 
 TEST_F(CellTest, UppercaseName) { VerifyNameInit("A1", 0, 0); }
@@ -55,3 +61,5 @@ TEST_F(CellTest, NonNumericIndex) {
     FAIL() << "Expected std::invalid_argument";
   }
 }
+
+TEST_F(CellTest, Pos_0_0) { VerifyPosInit(0, 0); }

@@ -4,6 +4,11 @@
 #include <stdexcept>
 
 namespace puzzlelib {
+Cell::Cell(int x, int y) {
+  this->x = x;
+  this->y = y;
+}
+
 Cell::Cell(std::string name) {
   char first_letter = name[0];
   if ('a' <= first_letter && first_letter <= 'z') first_letter += ('A' - 'a');
