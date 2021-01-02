@@ -1,1 +1,6 @@
-class Rule {};
+class Rule {
+  private:
+    char[] type;
+    char[][] cells;
+  
+};
