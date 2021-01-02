@@ -22,44 +22,11 @@ TEST_F(PuzzleTest, 9_by_9) { VerifyDim(9, 9); }
 
 class CellTest : public ::testing::Test {
  protected:
-  virtual void VerifyNameInit(std::string name, int expected_x,
-                              int expected_y) {
-    Cell cell(name);
-    ASSERT_EQ(cell.x, expected_x);
-    ASSERT_EQ(cell.y, expected_y);
-  }
-
   virtual void VerifyPosInit(int x, int y) {
     Cell cell(x, y);
     ASSERT_EQ(cell.x, x);
     ASSERT_EQ(cell.y, y);
   }
 };
-
-TEST_F(CellTest, UppercaseName) { VerifyNameInit("A1", 0, 0); }
-
-TEST_F(CellTest, LowercaseName) { VerifyNameInit("a1", 0, 0); }
-
-TEST_F(CellTest, NonAlphabetFirstCase) {
-  try {
-    VerifyNameInit("42", 0, 0);
-    FAIL() << "Expected Cell() to throw exception";
-  } catch (std::invalid_argument const &err) {
-    SUCCEED();
-  } catch (...) {
-    FAIL() << "Expected std::invalid_argument";
-  }
-}
-
-TEST_F(CellTest, NonNumericIndex) {
-  try {
-    VerifyNameInit("AA", 0, 0);
-    FAIL() << "Expected Cell() to throw exception";
-  } catch (std::invalid_argument const &err) {
-    SUCCEED();
-  } catch (...) {
-    FAIL() << "Expected std::invalid_argument";
-  }
-}
 
 TEST_F(CellTest, Pos_0_0) { VerifyPosInit(0, 0); }
