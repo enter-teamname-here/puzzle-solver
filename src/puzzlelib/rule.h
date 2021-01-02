@@ -1,6 +1,5 @@
 class Rule {
   private:
-    char[] type;
-    char[][] cells;
+    char[10] type;
   
 };
