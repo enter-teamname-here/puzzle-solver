@@ -4,10 +4,7 @@
 #include <stdexcept>
 
 namespace puzzlelib {
-Cell::Cell(int x, int y) {
-  this->x = x;
-  this->y = y;
-}
+Cell::Cell(int _x, int _y) : x(_x), y(_y) {}
 
 Cell::Cell(std::string name) {
   char first_letter = name[0];
