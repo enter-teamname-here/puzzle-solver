@@ -1,10 +1,17 @@
 #pragma once
 #include <string>
+#include <vector>
+
+#include "cell.h"
 
 namespace puzzlelib {
-class Rule {
- private:
-  std::string type;
-  std::string *cells;
+enum class RuleType { kExclusive, kSum };
+
+struct Rule {
+  RuleType type;
+  std::vector<Cell> cells;
+  int result;
+  Rule(RuleType _type, std::vector<Cell> _cells);
+  Rule(RuleType _type, std::vector<Cell> _cells, int _result);
 };
 }  // namespace puzzlelib
