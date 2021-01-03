@@ -14,4 +14,6 @@ struct Rule {
   Rule(RuleType _type, std::vector<Cell> _cells);
   Rule(RuleType _type, std::vector<Cell> _cells, int _result);
 };
+
+bool operator==(const Rule& lhs, const Rule& rhs);
 }  // namespace puzzlelib

@@ -96,6 +96,11 @@ class RuleTest : public ::testing::Test {
     ASSERT_EQ(rule.cells, cells);
     ASSERT_EQ(rule.result, result);
   }
+
+  virtual void VerifyEquality(const Rule& rule1, const Rule& rule2,
+                              bool expected) {
+    ASSERT_EQ(rule1 == rule2, expected);
+  }
 };
 
 TEST_F(RuleTest, ExeclusiveInit) {
@@ -124,4 +129,34 @@ TEST_F(RuleTest, InvalidSumInit) {
   } catch (...) {
     FAIL() << "Expected std::invalid_argument";
   }
+}
+
+TEST_F(RuleTest, ExclusiveEquality) {
+  Cell cell1(0, 0);
+  Cell cell2(0, 1);
+  Rule rule1(RuleType::kExclusive, {cell1, cell2});
+  Rule rule2(RuleType::kExclusive, {cell1, cell2});
+  VerifyEquality(rule1, rule2, true);
+  Rule rule3(RuleType::kExclusive, {cell1});
+  VerifyEquality(rule1, rule3, false);
+}
+
+TEST_F(RuleTest, SumEquality) {
+  Cell cell1(0, 0);
+  Cell cell2(0, 1);
+  Rule rule1(RuleType::kSum, {cell1, cell2}, 42);
+  Rule rule2(RuleType::kSum, {cell1, cell2}, 42);
+  VerifyEquality(rule1, rule2, true);
+  Rule rule3(RuleType::kSum, {cell1, cell2}, 0);
+  VerifyEquality(rule1, rule3, false);
+  Rule rule4(RuleType::kSum, {cell1}, 42);
+  VerifyEquality(rule1, rule4, false);
+}
+
+TEST_F(RuleTest, ExeclusiveSumMismatch) {
+  Cell cell1(0, 0);
+  Cell cell2(0, 1);
+  Rule rule1(RuleType::kSum, {cell1, cell2}, 42);
+  Rule rule2(RuleType::kExclusive, {cell1, cell2});
+  VerifyEquality(rule1, rule2, false);
 }
