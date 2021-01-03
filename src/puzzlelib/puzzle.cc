@@ -1,4 +1,4 @@
-#include "puzzle_def.h"
+#include "puzzle.h"
 
 namespace puzzlelib {
 Puzzle::Puzzle(int grid_width, int grid_height) {

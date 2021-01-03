@@ -1,6 +1,6 @@
 #include <cell.h>
 #include <gtest/gtest.h>
-#include <puzzle_def.h>
+#include <puzzle.h>
 #include <rule.h>
 
 #include <stdexcept>
