@@ -1,8 +1,6 @@
 #include <iostream>
 
-#include "puzzlelib/puzzle_def.h"
-
 int main(int argc, const char* argv[]) {
-  puzzlelib::Puzzle puzzle(9, 9);
+  std::cout << "Hell world!" << std::endl;
   return 0;
 }
