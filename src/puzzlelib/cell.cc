@@ -1,6 +1,5 @@
 #include "cell.h"
 
-#include <cassert>
 #include <stdexcept>
 
 namespace puzzlelib {
