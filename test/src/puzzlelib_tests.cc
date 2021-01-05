@@ -1,5 +1,6 @@
 #include <cell.h>
 #include <gtest/gtest.h>
+#include <node.h>
 #include <puzzle.h>
 #include <rule.h>
 
@@ -9,6 +10,7 @@
 #include <vector>
 
 using puzzlelib::Cell;
+using puzzlelib::Node;
 using puzzlelib::Puzzle;
 using puzzlelib::Rule;
 using puzzlelib::RuleType;
@@ -20,9 +22,28 @@ class PuzzleTest : public ::testing::Test {
     Puzzle puzzle(grid_width, grid_height);
     ASSERT_EQ(puzzle.GetGridDimension(), make_pair(grid_width, grid_height));
   }
+
+  virtual void VerifyKnuthMatrixHeaders(const Puzzle& puzzle) {
+    auto [matrix, headers] = puzzle.GenerateKnuthMatrix();
+    Node* current = matrix->right;
+    int idx = 0;
+    while (current != matrix) {
+      EXPECT_EQ(current, headers[idx]);
+      idx++;
+      current = current->right;
+    }
+  }
 };
 
 TEST_F(PuzzleTest, 9_by_9) { VerifyDim(9, 9); }
+
+TEST_F(PuzzleTest, HeaderGeneratesCorrectly) {
+  Cell cell1(0, 0, 1);
+  Cell cell2(1, 0);
+  Rule rule(RuleType::kExclusive, {cell1, cell2});
+  Puzzle puzzle(2, 1, {rule}, {1, 2});
+  VerifyKnuthMatrixHeaders(puzzle);
+}
 
 class CellTest : public ::testing::Test {
  protected:

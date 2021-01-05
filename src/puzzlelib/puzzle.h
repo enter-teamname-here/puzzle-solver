@@ -3,6 +3,7 @@
 #include <utility>
 #include <vector>
 
+#include "node.h"
 #include "rule.h"
 
 namespace puzzlelib {
@@ -19,5 +20,6 @@ class Puzzle {
   Puzzle(int _grid_width, int _grid_height, std::vector<Rule> _rules);
   Puzzle(int _grid_width, int _grid_height);
   std::pair<int, int> GetGridDimension();
+  std::pair<Node*, std::vector<Node*>> GenerateKnuthMatrix() const;
 };
 }  // namespace puzzlelib
