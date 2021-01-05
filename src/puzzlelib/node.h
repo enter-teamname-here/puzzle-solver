@@ -1,3 +1,5 @@
+#pragma once
+
 namespace puzzlelib {
 struct Node {
   Node* left;
