@@ -19,7 +19,7 @@ using std::make_pair;
 class PuzzleTest : public ::testing::Test {
  protected:
   virtual void VerifyDim(int grid_width, int grid_height) {
-    Puzzle puzzle(grid_width, grid_height);
+    Puzzle puzzle(grid_width, grid_height, {}, {});
     ASSERT_EQ(puzzle.GetGridDimension(), make_pair(grid_width, grid_height));
   }
 
