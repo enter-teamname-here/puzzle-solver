@@ -10,7 +10,7 @@ struct Cell {
 
   Cell(int _x, int _y);
   Cell(int _x, int _y, int _initial_value);
-  std::pair<int, int> GetCellPosition();
+  std::pair<int, int> GetCellPosition() const;
 };
 
 bool operator==(const Cell& lhs, const Cell& rhs);
