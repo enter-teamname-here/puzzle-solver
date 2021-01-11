@@ -11,12 +11,6 @@ Puzzle::Puzzle(int _grid_width, int _grid_height, std::vector<Rule> _rules,
       rules(_rules),
       cell_contents(_cell_contents){};
 
-Puzzle::Puzzle(int _grid_width, int _grid_height, std::vector<Rule> _rules)
-    : Puzzle(_grid_width, _grid_height, {}, {}) {}
-
-Puzzle::Puzzle(int _grid_width, int _grid_height)
-    : Puzzle(_grid_width, _grid_height, {}) {}
-
 std::pair<int, int> Puzzle::GetGridDimension() {
   return {this->grid_width, this->grid_height};
 }
