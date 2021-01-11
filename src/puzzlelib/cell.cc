@@ -16,4 +16,6 @@ bool operator==(const Cell& lhs, const Cell& rhs) {
            lhs.initial_value == rhs.initial_value;
   return lhs.x == rhs.x && lhs.y == rhs.y;
 }
+
+std::pair<int, int> Cell::GetCellPosition() { return {this->x, this->y}; }
 }  // namespace puzzlelib
