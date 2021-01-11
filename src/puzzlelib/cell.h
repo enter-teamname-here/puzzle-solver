@@ -13,5 +13,6 @@ struct Cell {
   std::pair<int, int> GetCellPosition() const;
 };
 
+bool operator<(const Cell& lhs, const Cell& rhs);
 bool operator==(const Cell& lhs, const Cell& rhs);
 }  // namespace puzzlelib
