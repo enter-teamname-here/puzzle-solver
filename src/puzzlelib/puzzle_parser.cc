@@ -15,5 +15,7 @@ Puzzle PuzzleParser::ParsePuzzleJSON(std::string json) {
   std::vector<int> cell_contents;
   for (auto& val : doc["cell_contents"].GetArray())
     cell_contents.push_back(val.GetInt());
+  Puzzle puzzle(0, 0, {}, {});
+  return puzzle;
 }
 }  // namespace puzzlelib
